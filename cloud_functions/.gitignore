@@ -1,0 +1,6 @@
+# Firebase cache
+.firebase/
+
+# dotenv environment variables file
+.env
+env
