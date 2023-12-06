@@ -31,8 +31,8 @@
       ]
     },
     {
-      "source": "receptor-ddjj",
-      "codebase": "receptor-ddjj",
+      "source": "receiver-ddjj",
+      "codebase": "receiver-ddjj",
       "ignore": [
         "venv",
         ".git",
@@ -43,6 +43,16 @@
     {
       "source": "output-ddjj",
       "codebase": "output-ddjj",
+      "ignore": [
+        "venv",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ]
+    },
+    {
+      "source": "add_indicator",
+      "codebase": "add_indicator",
       "ignore": [
         "venv",
         ".git",

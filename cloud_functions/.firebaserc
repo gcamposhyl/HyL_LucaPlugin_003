@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "lucaplugs-dev"
-  }
+    "default": "lucaplugs-dev",
+    "lucaplugs-dev": "lucaplugs-dev"
+  },
+  "targets": {},
+  "etags": {}
 }
