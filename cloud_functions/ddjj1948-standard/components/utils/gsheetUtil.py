@@ -30,8 +30,6 @@ class Gsheet:
     def getSheetByNameSheet(self, sc_id, sc_name):
 
         try:
-
-
             sheet = self.get_gsheets().spreadsheets()
 
             result = (
@@ -53,3 +51,30 @@ class Gsheet:
             return values
         except Exception as ex:
             print(str(ex))
+
+    def insert_data_to_sheet(self, spreadsheet_id, sheet_name, df, start_cell):
+        try:
+            # Obtener el servicio de hojas de cálculo
+            sheet = self.get_gsheets().spreadsheets()
+
+            # Convertir el DataFrame a una lista de listas para enviar a la hoja de cálculo
+            values = df.values.tolist()
+
+            # Obtener el rango para actualizar, comenzando desde la celda especificada
+            range_to_update = f"{sheet_name}!{start_cell}"
+
+            # Crear el cuerpo de la solicitud para la actualización
+            body = {"values": values}
+
+            # Realizar la actualización en la hoja de cálculo
+            sheet.values().update(
+                spreadsheetId=spreadsheet_id,
+                range=range_to_update,
+                body=body,
+                valueInputOption="RAW"
+            ).execute()
+
+            print("Datos insertados correctamente en la hoja de cálculo.")
+
+        except Exception as ex:
+            print(f"Error al insertar datos en la hoja de cálculo: {str(ex)}")

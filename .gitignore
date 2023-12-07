@@ -1,1 +1,6 @@
 venv
+
+firestore-debug.log
+pubsub-debug.log
+
+__pycache__
