@@ -21,13 +21,9 @@ def plugin_v1_ddjj_moderator(event: pubsub_fn.CloudEvent[pubsub_fn.MessagePublis
 
         input_text = data["inputText"]
         plugin_name = data["name"]
-        print("plugin_name:", plugin_name)    
         card_id = data["cardId"]
-        print("card_id:", card_id)
         user_id = data["userId"]
-        print("user_id:", user_id)
         number_ddjj = data["inputCheckbox"][0]
-        print("number_ddjj:", number_ddjj)
 
         # Convertir el string corregido a una lista
         string_files = input_text.replace("'", '"')
@@ -35,12 +31,10 @@ def plugin_v1_ddjj_moderator(event: pubsub_fn.CloudEvent[pubsub_fn.MessagePublis
 
         data_list_content = data_list[0]
         rut = data_list_content["rut"]
-        print("rut:", rut)
         year = data_list_content["year"]
-        print("year:", year)
         
         plugin_ddjj = f'{plugin_name}{number_ddjj}'
-        print("plugin_ddjj:", plugin_ddjj)
+
 
         id_folder_drive = cloud_resources.obtain_folder_id(plugin_ddjj, user_id, card_id)
 
@@ -54,8 +48,19 @@ def plugin_v1_ddjj_moderator(event: pubsub_fn.CloudEvent[pubsub_fn.MessagePublis
             "input_text": data["inputText"],
         }
 
+        #asentar rutas en firestore
         firestore_resources.create_custom(plugin_name, user_id, number_ddjj, card_id, message)
 
+        #crear tópico pub/sub
+        topic = f'{plugin_ddjj}'
+        json_data = json.dumps(message)
+        data_bytes = json_data.encode('utf-8')
+        project_id = os.environ.get('PROJECT_ID_FIREBASE')
+        topic_published = publisher_topic(data_bytes, project_id, topic)
+        print("Estado de publicación de tópico:",topic_published)
+
+        #limpia memoria hasta este punto
+        gc.collect()
 
         
     except Exception as e:

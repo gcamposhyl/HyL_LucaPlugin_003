@@ -14613,3 +14613,452 @@ specVersion: v1alpha1
 [error] Terminated
 
 [info] ✔  functions: Loaded functions definitions from source: plugin_v1_ddjj_moderator. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: plugin_v1_ddjj_moderator."}}
+[debug] [2023-12-07T20:49:49.294Z] Dec 07, 2023 5:49:49 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Dec 07, 2023 5:49:49 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-12-07T20:50:32.295Z] File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/main.py changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/main.py changed, reloading triggers"}}
+[debug] [2023-12-07T20:50:33.297Z] Customer code is not Node
+[debug] [2023-12-07T20:50:33.298Z] Validating python source
+[debug] [2023-12-07T20:50:33.298Z] Building python source
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2023-12-07T20:50:33.301Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-07T20:50:33.302Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","-c","\"import firebase_functions; import os; print(os.path.dirname(firebase_functions.__file__))\""]
+[debug] [2023-12-07T20:50:33.364Z] stdout: /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions
+
+[debug] [2023-12-07T20:50:33.368Z] Running admin server with args: ["python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""] and env: {"GCLOUD_PROJECT":"lucaplugs-dev","K_REVISION":"1","PORT":"80","GOOGLE_CLOUD_QUOTA_PROJECT":"lucaplugs-dev","FUNCTIONS_EMULATOR":"true","TZ":"UTC","FIREBASE_DEBUG_MODE":"true","FIREBASE_DEBUG_FEATURES":"{\"skipTokenVerification\":true,\"enableCors\":true}","FIREBASE_EMULATOR_HUB":"127.0.0.1:4400","FIRESTORE_EMULATOR_HOST":"127.0.0.1:8080","FIREBASE_FIRESTORE_EMULATOR_ADDRESS":"127.0.0.1:8080","PUBSUB_EMULATOR_HOST":"127.0.0.1:8085","FIREBASE_STORAGE_EMULATOR_HOST":"127.0.0.1:9199","STORAGE_EMULATOR_HOST":"http://127.0.0.1:9199","CLOUD_EVENTARC_EMULATOR_HOST":"http://127.0.0.1:9299","FIREBASE_CONFIG":"{\"storageBucket\":\"lucaplugs-dev.appspot.com\",\"databaseURL\":\"https://lucaplugs-dev-default-rtdb.firebaseio.com\",\"projectId\":\"lucaplugs-dev\"}","GOOGLE_APPLICATION_CREDENTIALS":"/home/devhyl2/.config/firebase/asalazar_hyl_cl_application_default_credentials.json","ADMIN_PORT":"8081"} in /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj
+[debug] [2023-12-07T20:50:33.368Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""]
+[info]  * Serving Flask app 'serving'
+ * Debug mode: off
+
+[error] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:8081
+
+[error] Press CTRL+C to quit
+
+[debug] [2023-12-07T20:50:34.314Z] File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/__pycache__/main.cpython-311.pyc changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/__pycache__/main.cpython-311.pyc changed, reloading triggers"}}
+[debug] [2023-12-07T20:50:34.319Z] Dec 07, 2023 5:50:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Dec 07, 2023 5:50:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[error] 127.0.0.1 - - [07/Dec/2023 20:50:34] "GET /__/functions.yaml HTTP/1.1" 200 -
+
+[debug] [2023-12-07T20:50:34.386Z] Got response from /__/functions.yaml endpoints:
+  plugin_v1_ddjj_moderator:
+    availableMemoryMb: null
+    concurrency: null
+    entryPoint: plugin_v1_ddjj_moderator
+    eventTrigger:
+      eventFilters:
+        topic: ddjj
+      eventType: google.cloud.pubsub.topic.v1.messagePublished
+      retry: false
+    ingressSettings: null
+    labels: {}
+    maxInstances: 10
+    minInstances: null
+    platform: gcfv2
+    secretEnvironmentVariables: []
+    serviceAccountEmail: null
+    timeoutSeconds: null
+params: []
+requiredAPIs: []
+specVersion: v1alpha1
+
+[error] 127.0.0.1 - - [07/Dec/2023 20:50:34] "GET /__/quitquitquit HTTP/1.1" 200 -
+
+[error] Terminated
+
+[info] ✔  functions: Loaded functions definitions from source: plugin_v1_ddjj_moderator. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: plugin_v1_ddjj_moderator."}}
+[debug] [2023-12-07T20:50:35.317Z] Customer code is not Node
+[debug] [2023-12-07T20:50:35.318Z] Validating python source
+[debug] [2023-12-07T20:50:35.318Z] Building python source
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2023-12-07T20:50:35.320Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-07T20:50:35.321Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","-c","\"import firebase_functions; import os; print(os.path.dirname(firebase_functions.__file__))\""]
+[debug] [2023-12-07T20:50:35.378Z] stdout: /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions
+
+[debug] [2023-12-07T20:50:35.381Z] Running admin server with args: ["python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""] and env: {"GCLOUD_PROJECT":"lucaplugs-dev","K_REVISION":"1","PORT":"80","GOOGLE_CLOUD_QUOTA_PROJECT":"lucaplugs-dev","FUNCTIONS_EMULATOR":"true","TZ":"UTC","FIREBASE_DEBUG_MODE":"true","FIREBASE_DEBUG_FEATURES":"{\"skipTokenVerification\":true,\"enableCors\":true}","FIREBASE_EMULATOR_HUB":"127.0.0.1:4400","FIRESTORE_EMULATOR_HOST":"127.0.0.1:8080","FIREBASE_FIRESTORE_EMULATOR_ADDRESS":"127.0.0.1:8080","PUBSUB_EMULATOR_HOST":"127.0.0.1:8085","FIREBASE_STORAGE_EMULATOR_HOST":"127.0.0.1:9199","STORAGE_EMULATOR_HOST":"http://127.0.0.1:9199","CLOUD_EVENTARC_EMULATOR_HOST":"http://127.0.0.1:9299","FIREBASE_CONFIG":"{\"storageBucket\":\"lucaplugs-dev.appspot.com\",\"databaseURL\":\"https://lucaplugs-dev-default-rtdb.firebaseio.com\",\"projectId\":\"lucaplugs-dev\"}","GOOGLE_APPLICATION_CREDENTIALS":"/home/devhyl2/.config/firebase/asalazar_hyl_cl_application_default_credentials.json","ADMIN_PORT":"8081"} in /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj
+[debug] [2023-12-07T20:50:35.382Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""]
+[info]  * Serving Flask app 'serving'
+ * Debug mode: off
+
+[error] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:8081
+Press CTRL+C to quit
+
+[error] 127.0.0.1 - - [07/Dec/2023 20:50:35] "GET /__/functions.yaml HTTP/1.1" 200 -
+
+[debug] [2023-12-07T20:50:35.794Z] Got response from /__/functions.yaml endpoints:
+  plugin_v1_ddjj_moderator:
+    availableMemoryMb: null
+    concurrency: null
+    entryPoint: plugin_v1_ddjj_moderator
+    eventTrigger:
+      eventFilters:
+        topic: ddjj
+      eventType: google.cloud.pubsub.topic.v1.messagePublished
+      retry: false
+    ingressSettings: null
+    labels: {}
+    maxInstances: 10
+    minInstances: null
+    platform: gcfv2
+    secretEnvironmentVariables: []
+    serviceAccountEmail: null
+    timeoutSeconds: null
+params: []
+requiredAPIs: []
+specVersion: v1alpha1
+
+[error] 127.0.0.1 - - [07/Dec/2023 20:50:35] "GET /__/quitquitquit HTTP/1.1" 200 -
+
+[error] Terminated
+
+[info] ✔  functions: Loaded functions definitions from source: plugin_v1_ddjj_moderator. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: plugin_v1_ddjj_moderator."}}
+[debug] [2023-12-07T20:51:49.362Z] Dec 07, 2023 5:51:49 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Dec 07, 2023 5:51:49 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-12-07T20:52:04.522Z] File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/main.py changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/main.py changed, reloading triggers"}}
+[debug] [2023-12-07T20:52:05.524Z] Customer code is not Node
+[debug] [2023-12-07T20:52:05.525Z] Validating python source
+[debug] [2023-12-07T20:52:05.525Z] Building python source
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2023-12-07T20:52:05.527Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-07T20:52:05.529Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","-c","\"import firebase_functions; import os; print(os.path.dirname(firebase_functions.__file__))\""]
+[debug] [2023-12-07T20:52:05.591Z] stdout: /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions
+
+[debug] [2023-12-07T20:52:05.595Z] Running admin server with args: ["python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""] and env: {"GCLOUD_PROJECT":"lucaplugs-dev","K_REVISION":"1","PORT":"80","GOOGLE_CLOUD_QUOTA_PROJECT":"lucaplugs-dev","FUNCTIONS_EMULATOR":"true","TZ":"UTC","FIREBASE_DEBUG_MODE":"true","FIREBASE_DEBUG_FEATURES":"{\"skipTokenVerification\":true,\"enableCors\":true}","FIREBASE_EMULATOR_HUB":"127.0.0.1:4400","FIRESTORE_EMULATOR_HOST":"127.0.0.1:8080","FIREBASE_FIRESTORE_EMULATOR_ADDRESS":"127.0.0.1:8080","PUBSUB_EMULATOR_HOST":"127.0.0.1:8085","FIREBASE_STORAGE_EMULATOR_HOST":"127.0.0.1:9199","STORAGE_EMULATOR_HOST":"http://127.0.0.1:9199","CLOUD_EVENTARC_EMULATOR_HOST":"http://127.0.0.1:9299","FIREBASE_CONFIG":"{\"storageBucket\":\"lucaplugs-dev.appspot.com\",\"databaseURL\":\"https://lucaplugs-dev-default-rtdb.firebaseio.com\",\"projectId\":\"lucaplugs-dev\"}","GOOGLE_APPLICATION_CREDENTIALS":"/home/devhyl2/.config/firebase/asalazar_hyl_cl_application_default_credentials.json","ADMIN_PORT":"8081"} in /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj
+[debug] [2023-12-07T20:52:05.595Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""]
+[info]  * Serving Flask app 'serving'
+ * Debug mode: off
+
+[error] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:8081
+Press CTRL+C to quit
+
+[debug] [2023-12-07T20:52:06.077Z] File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/__pycache__/main.cpython-311.pyc changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/__pycache__/main.cpython-311.pyc changed, reloading triggers"}}
+[error] 127.0.0.1 - - [07/Dec/2023 20:52:06] "GET /__/functions.yaml HTTP/1.1" 200 -
+
+[debug] [2023-12-07T20:52:06.109Z] Got response from /__/functions.yaml endpoints:
+  plugin_v1_ddjj_moderator:
+    availableMemoryMb: null
+    concurrency: null
+    entryPoint: plugin_v1_ddjj_moderator
+    eventTrigger:
+      eventFilters:
+        topic: ddjj
+      eventType: google.cloud.pubsub.topic.v1.messagePublished
+      retry: false
+    ingressSettings: null
+    labels: {}
+    maxInstances: 10
+    minInstances: null
+    platform: gcfv2
+    secretEnvironmentVariables: []
+    serviceAccountEmail: null
+    timeoutSeconds: null
+params: []
+requiredAPIs: []
+specVersion: v1alpha1
+
+[error] 127.0.0.1 - - [07/Dec/2023 20:52:06] "GET /__/quitquitquit HTTP/1.1" 200 -
+
+[error] Terminated
+
+[info] ✔  functions: Loaded functions definitions from source: plugin_v1_ddjj_moderator. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: plugin_v1_ddjj_moderator."}}
+[debug] [2023-12-07T20:52:07.081Z] Customer code is not Node
+[debug] [2023-12-07T20:52:07.082Z] Validating python source
+[debug] [2023-12-07T20:52:07.082Z] Building python source
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2023-12-07T20:52:07.085Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-07T20:52:07.088Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","-c","\"import firebase_functions; import os; print(os.path.dirname(firebase_functions.__file__))\""]
+[debug] [2023-12-07T20:52:07.168Z] stdout: /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions
+
+[debug] [2023-12-07T20:52:07.172Z] Running admin server with args: ["python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""] and env: {"GCLOUD_PROJECT":"lucaplugs-dev","K_REVISION":"1","PORT":"80","GOOGLE_CLOUD_QUOTA_PROJECT":"lucaplugs-dev","FUNCTIONS_EMULATOR":"true","TZ":"UTC","FIREBASE_DEBUG_MODE":"true","FIREBASE_DEBUG_FEATURES":"{\"skipTokenVerification\":true,\"enableCors\":true}","FIREBASE_EMULATOR_HUB":"127.0.0.1:4400","FIRESTORE_EMULATOR_HOST":"127.0.0.1:8080","FIREBASE_FIRESTORE_EMULATOR_ADDRESS":"127.0.0.1:8080","PUBSUB_EMULATOR_HOST":"127.0.0.1:8085","FIREBASE_STORAGE_EMULATOR_HOST":"127.0.0.1:9199","STORAGE_EMULATOR_HOST":"http://127.0.0.1:9199","CLOUD_EVENTARC_EMULATOR_HOST":"http://127.0.0.1:9299","FIREBASE_CONFIG":"{\"storageBucket\":\"lucaplugs-dev.appspot.com\",\"databaseURL\":\"https://lucaplugs-dev-default-rtdb.firebaseio.com\",\"projectId\":\"lucaplugs-dev\"}","GOOGLE_APPLICATION_CREDENTIALS":"/home/devhyl2/.config/firebase/asalazar_hyl_cl_application_default_credentials.json","ADMIN_PORT":"8081"} in /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj
+[debug] [2023-12-07T20:52:07.172Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""]
+[info]  * Serving Flask app 'serving'
+ * Debug mode: off
+
+[error] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:8081
+
+[error] Press CTRL+C to quit
+
+[error] 127.0.0.1 - - [07/Dec/2023 20:52:07] "GET /__/functions.yaml HTTP/1.1" 200 -
+
+[debug] [2023-12-07T20:52:07.570Z] Got response from /__/functions.yaml endpoints:
+  plugin_v1_ddjj_moderator:
+    availableMemoryMb: null
+    concurrency: null
+    entryPoint: plugin_v1_ddjj_moderator
+    eventTrigger:
+      eventFilters:
+        topic: ddjj
+      eventType: google.cloud.pubsub.topic.v1.messagePublished
+      retry: false
+    ingressSettings: null
+    labels: {}
+    maxInstances: 10
+    minInstances: null
+    platform: gcfv2
+    secretEnvironmentVariables: []
+    serviceAccountEmail: null
+    timeoutSeconds: null
+params: []
+requiredAPIs: []
+specVersion: v1alpha1
+
+[error] 127.0.0.1 - - [07/Dec/2023 20:52:07] "GET /__/quitquitquit HTTP/1.1" 200 -
+
+[error] Terminated
+
+[info] ✔  functions: Loaded functions definitions from source: plugin_v1_ddjj_moderator. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: plugin_v1_ddjj_moderator."}}
+[debug] [2023-12-07T20:52:30.365Z] Dec 07, 2023 5:52:30 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Dec 07, 2023 5:52:30 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-12-07T20:53:04.371Z] Dec 07, 2023 5:53:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Dec 07, 2023 5:53:04 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-12-07T20:53:15.416Z] File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/main.py changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/main.py changed, reloading triggers"}}
+[debug] [2023-12-07T20:53:16.417Z] Customer code is not Node
+[debug] [2023-12-07T20:53:16.418Z] Validating python source
+[debug] [2023-12-07T20:53:16.418Z] Building python source
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2023-12-07T20:53:16.422Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-07T20:53:16.424Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","-c","\"import firebase_functions; import os; print(os.path.dirname(firebase_functions.__file__))\""]
+[debug] [2023-12-07T20:53:16.491Z] stdout: /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions
+
+[debug] [2023-12-07T20:53:16.517Z] Running admin server with args: ["python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""] and env: {"GCLOUD_PROJECT":"lucaplugs-dev","K_REVISION":"1","PORT":"80","GOOGLE_CLOUD_QUOTA_PROJECT":"lucaplugs-dev","FUNCTIONS_EMULATOR":"true","TZ":"UTC","FIREBASE_DEBUG_MODE":"true","FIREBASE_DEBUG_FEATURES":"{\"skipTokenVerification\":true,\"enableCors\":true}","FIREBASE_EMULATOR_HUB":"127.0.0.1:4400","FIRESTORE_EMULATOR_HOST":"127.0.0.1:8080","FIREBASE_FIRESTORE_EMULATOR_ADDRESS":"127.0.0.1:8080","PUBSUB_EMULATOR_HOST":"127.0.0.1:8085","FIREBASE_STORAGE_EMULATOR_HOST":"127.0.0.1:9199","STORAGE_EMULATOR_HOST":"http://127.0.0.1:9199","CLOUD_EVENTARC_EMULATOR_HOST":"http://127.0.0.1:9299","FIREBASE_CONFIG":"{\"storageBucket\":\"lucaplugs-dev.appspot.com\",\"databaseURL\":\"https://lucaplugs-dev-default-rtdb.firebaseio.com\",\"projectId\":\"lucaplugs-dev\"}","GOOGLE_APPLICATION_CREDENTIALS":"/home/devhyl2/.config/firebase/asalazar_hyl_cl_application_default_credentials.json","ADMIN_PORT":"8081"} in /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj
+[debug] [2023-12-07T20:53:16.517Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""]
+[info]  * Serving Flask app 'serving'
+ * Debug mode: off
+
+[error] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:8081
+
+[error] Press CTRL+C to quit
+
+[debug] [2023-12-07T20:53:17.231Z] File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/__pycache__/main.cpython-311.pyc changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/__pycache__/main.cpython-311.pyc changed, reloading triggers"}}
+[error] 127.0.0.1 - - [07/Dec/2023 20:53:17] "GET /__/functions.yaml HTTP/1.1" 200 -
+
+[debug] [2023-12-07T20:53:17.254Z] Got response from /__/functions.yaml endpoints:
+  plugin_v1_ddjj_moderator:
+    availableMemoryMb: null
+    concurrency: null
+    entryPoint: plugin_v1_ddjj_moderator
+    eventTrigger:
+      eventFilters:
+        topic: ddjj
+      eventType: google.cloud.pubsub.topic.v1.messagePublished
+      retry: false
+    ingressSettings: null
+    labels: {}
+    maxInstances: 10
+    minInstances: null
+    platform: gcfv2
+    secretEnvironmentVariables: []
+    serviceAccountEmail: null
+    timeoutSeconds: null
+params: []
+requiredAPIs: []
+specVersion: v1alpha1
+
+[error] 127.0.0.1 - - [07/Dec/2023 20:53:17] "GET /__/quitquitquit HTTP/1.1" 200 -
+
+[error] Terminated
+
+[info] ✔  functions: Loaded functions definitions from source: plugin_v1_ddjj_moderator. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: plugin_v1_ddjj_moderator."}}
+[debug] [2023-12-07T20:53:18.233Z] Customer code is not Node
+[debug] [2023-12-07T20:53:18.233Z] Validating python source
+[debug] [2023-12-07T20:53:18.233Z] Building python source
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2023-12-07T20:53:18.234Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-07T20:53:18.235Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","-c","\"import firebase_functions; import os; print(os.path.dirname(firebase_functions.__file__))\""]
+[debug] [2023-12-07T20:53:18.285Z] stdout: /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions
+
+[debug] [2023-12-07T20:53:18.288Z] Running admin server with args: ["python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""] and env: {"GCLOUD_PROJECT":"lucaplugs-dev","K_REVISION":"1","PORT":"80","GOOGLE_CLOUD_QUOTA_PROJECT":"lucaplugs-dev","FUNCTIONS_EMULATOR":"true","TZ":"UTC","FIREBASE_DEBUG_MODE":"true","FIREBASE_DEBUG_FEATURES":"{\"skipTokenVerification\":true,\"enableCors\":true}","FIREBASE_EMULATOR_HUB":"127.0.0.1:4400","FIRESTORE_EMULATOR_HOST":"127.0.0.1:8080","FIREBASE_FIRESTORE_EMULATOR_ADDRESS":"127.0.0.1:8080","PUBSUB_EMULATOR_HOST":"127.0.0.1:8085","FIREBASE_STORAGE_EMULATOR_HOST":"127.0.0.1:9199","STORAGE_EMULATOR_HOST":"http://127.0.0.1:9199","CLOUD_EVENTARC_EMULATOR_HOST":"http://127.0.0.1:9299","FIREBASE_CONFIG":"{\"storageBucket\":\"lucaplugs-dev.appspot.com\",\"databaseURL\":\"https://lucaplugs-dev-default-rtdb.firebaseio.com\",\"projectId\":\"lucaplugs-dev\"}","GOOGLE_APPLICATION_CREDENTIALS":"/home/devhyl2/.config/firebase/asalazar_hyl_cl_application_default_credentials.json","ADMIN_PORT":"8081"} in /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj
+[debug] [2023-12-07T20:53:18.289Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""]
+[info]  * Serving Flask app 'serving'
+ * Debug mode: off
+
+[error] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:8081
+
+[error] Press CTRL+C to quit
+
+[error] 127.0.0.1 - - [07/Dec/2023 20:53:18] "GET /__/functions.yaml HTTP/1.1" 200 -
+
+[debug] [2023-12-07T20:53:18.678Z] Got response from /__/functions.yaml endpoints:
+  plugin_v1_ddjj_moderator:
+    availableMemoryMb: null
+    concurrency: null
+    entryPoint: plugin_v1_ddjj_moderator
+    eventTrigger:
+      eventFilters:
+        topic: ddjj
+      eventType: google.cloud.pubsub.topic.v1.messagePublished
+      retry: false
+    ingressSettings: null
+    labels: {}
+    maxInstances: 10
+    minInstances: null
+    platform: gcfv2
+    secretEnvironmentVariables: []
+    serviceAccountEmail: null
+    timeoutSeconds: null
+params: []
+requiredAPIs: []
+specVersion: v1alpha1
+
+[error] 127.0.0.1 - - [07/Dec/2023 20:53:18] "GET /__/quitquitquit HTTP/1.1" 200 -
+
+[error] Terminated
+
+[info] ✔  functions: Loaded functions definitions from source: plugin_v1_ddjj_moderator. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: plugin_v1_ddjj_moderator."}}
+[debug] [2023-12-07T20:53:49.382Z] Dec 07, 2023 5:53:49 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Dec 07, 2023 5:53:49 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2023-12-07T20:53:59.955Z] File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/main.py changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/main.py changed, reloading triggers"}}
+[debug] [2023-12-07T20:54:00.957Z] Customer code is not Node
+[debug] [2023-12-07T20:54:00.958Z] Validating python source
+[debug] [2023-12-07T20:54:00.959Z] Building python source
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2023-12-07T20:54:00.962Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-07T20:54:00.965Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","-c","\"import firebase_functions; import os; print(os.path.dirname(firebase_functions.__file__))\""]
+[debug] [2023-12-07T20:54:01.075Z] stdout: /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions
+
+[debug] [2023-12-07T20:54:01.089Z] Running admin server with args: ["python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""] and env: {"GCLOUD_PROJECT":"lucaplugs-dev","K_REVISION":"1","PORT":"80","GOOGLE_CLOUD_QUOTA_PROJECT":"lucaplugs-dev","FUNCTIONS_EMULATOR":"true","TZ":"UTC","FIREBASE_DEBUG_MODE":"true","FIREBASE_DEBUG_FEATURES":"{\"skipTokenVerification\":true,\"enableCors\":true}","FIREBASE_EMULATOR_HUB":"127.0.0.1:4400","FIRESTORE_EMULATOR_HOST":"127.0.0.1:8080","FIREBASE_FIRESTORE_EMULATOR_ADDRESS":"127.0.0.1:8080","PUBSUB_EMULATOR_HOST":"127.0.0.1:8085","FIREBASE_STORAGE_EMULATOR_HOST":"127.0.0.1:9199","STORAGE_EMULATOR_HOST":"http://127.0.0.1:9199","CLOUD_EVENTARC_EMULATOR_HOST":"http://127.0.0.1:9299","FIREBASE_CONFIG":"{\"storageBucket\":\"lucaplugs-dev.appspot.com\",\"databaseURL\":\"https://lucaplugs-dev-default-rtdb.firebaseio.com\",\"projectId\":\"lucaplugs-dev\"}","GOOGLE_APPLICATION_CREDENTIALS":"/home/devhyl2/.config/firebase/asalazar_hyl_cl_application_default_credentials.json","ADMIN_PORT":"8081"} in /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj
+[debug] [2023-12-07T20:54:01.090Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""]
+[info]  * Serving Flask app 'serving'
+ * Debug mode: off
+
+[error] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:8081
+
+[error] Press CTRL+C to quit
+
+[debug] [2023-12-07T20:54:01.600Z] File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/__pycache__/main.cpython-311.pyc changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/__pycache__/main.cpython-311.pyc changed, reloading triggers"}}
+[error] 127.0.0.1 - - [07/Dec/2023 20:54:01] "GET /__/functions.yaml HTTP/1.1" 200 -
+
+[debug] [2023-12-07T20:54:01.612Z] Got response from /__/functions.yaml endpoints:
+  plugin_v1_ddjj_moderator:
+    availableMemoryMb: null
+    concurrency: null
+    entryPoint: plugin_v1_ddjj_moderator
+    eventTrigger:
+      eventFilters:
+        topic: ddjj
+      eventType: google.cloud.pubsub.topic.v1.messagePublished
+      retry: false
+    ingressSettings: null
+    labels: {}
+    maxInstances: 10
+    minInstances: null
+    platform: gcfv2
+    secretEnvironmentVariables: []
+    serviceAccountEmail: null
+    timeoutSeconds: null
+params: []
+requiredAPIs: []
+specVersion: v1alpha1
+
+[error] 127.0.0.1 - - [07/Dec/2023 20:54:01] "GET /__/quitquitquit HTTP/1.1" 200 -
+
+[error] Terminated
+
+[info] ✔  functions: Loaded functions definitions from source: plugin_v1_ddjj_moderator. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: plugin_v1_ddjj_moderator."}}
+[debug] [2023-12-07T20:54:02.601Z] Customer code is not Node
+[debug] [2023-12-07T20:54:02.602Z] Validating python source
+[debug] [2023-12-07T20:54:02.602Z] Building python source
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2023-12-07T20:54:02.603Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-07T20:54:02.604Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","-c","\"import firebase_functions; import os; print(os.path.dirname(firebase_functions.__file__))\""]
+[debug] [2023-12-07T20:54:02.658Z] stdout: /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions
+
+[debug] [2023-12-07T20:54:02.667Z] Running admin server with args: ["python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""] and env: {"GCLOUD_PROJECT":"lucaplugs-dev","K_REVISION":"1","PORT":"80","GOOGLE_CLOUD_QUOTA_PROJECT":"lucaplugs-dev","FUNCTIONS_EMULATOR":"true","TZ":"UTC","FIREBASE_DEBUG_MODE":"true","FIREBASE_DEBUG_FEATURES":"{\"skipTokenVerification\":true,\"enableCors\":true}","FIREBASE_EMULATOR_HUB":"127.0.0.1:4400","FIRESTORE_EMULATOR_HOST":"127.0.0.1:8080","FIREBASE_FIRESTORE_EMULATOR_ADDRESS":"127.0.0.1:8080","PUBSUB_EMULATOR_HOST":"127.0.0.1:8085","FIREBASE_STORAGE_EMULATOR_HOST":"127.0.0.1:9199","STORAGE_EMULATOR_HOST":"http://127.0.0.1:9199","CLOUD_EVENTARC_EMULATOR_HOST":"http://127.0.0.1:9299","FIREBASE_CONFIG":"{\"storageBucket\":\"lucaplugs-dev.appspot.com\",\"databaseURL\":\"https://lucaplugs-dev-default-rtdb.firebaseio.com\",\"projectId\":\"lucaplugs-dev\"}","GOOGLE_APPLICATION_CREDENTIALS":"/home/devhyl2/.config/firebase/asalazar_hyl_cl_application_default_credentials.json","ADMIN_PORT":"8081"} in /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj
+[debug] [2023-12-07T20:54:02.667Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""]
+[info]  * Serving Flask app 'serving'
+ * Debug mode: off
+
+[error] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:8081
+
+[error] Press CTRL+C to quit
+
+[error] 127.0.0.1 - - [07/Dec/2023 20:54:03] "GET /__/functions.yaml HTTP/1.1" 200 -
+
+[debug] [2023-12-07T20:54:03.070Z] Got response from /__/functions.yaml endpoints:
+  plugin_v1_ddjj_moderator:
+    availableMemoryMb: null
+    concurrency: null
+    entryPoint: plugin_v1_ddjj_moderator
+    eventTrigger:
+      eventFilters:
+        topic: ddjj
+      eventType: google.cloud.pubsub.topic.v1.messagePublished
+      retry: false
+    ingressSettings: null
+    labels: {}
+    maxInstances: 10
+    minInstances: null
+    platform: gcfv2
+    secretEnvironmentVariables: []
+    serviceAccountEmail: null
+    timeoutSeconds: null
+params: []
+requiredAPIs: []
+specVersion: v1alpha1
+
+[error] 127.0.0.1 - - [07/Dec/2023 20:54:03] "GET /__/quitquitquit HTTP/1.1" 200 -
+
+[error] Terminated
+
+[info] ✔  functions: Loaded functions definitions from source: plugin_v1_ddjj_moderator. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: plugin_v1_ddjj_moderator."}}
+[debug] [2023-12-07T20:54:10.583Z] File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/main.py changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/main.py changed, reloading triggers"}}
+[debug] [2023-12-07T20:54:11.584Z] Customer code is not Node
+[debug] [2023-12-07T20:54:11.585Z] Validating python source
+[debug] [2023-12-07T20:54:11.585Z] Building python source
+[info] i  functions: Loaded environment variables from .env. 
+[debug] [2023-12-07T20:54:11.588Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-12-07T20:54:11.590Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","-c","\"import firebase_functions; import os; print(os.path.dirname(firebase_functions.__file__))\""]
+[debug] [2023-12-07T20:54:11.683Z] stdout: /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions
+
+[debug] [2023-12-07T20:54:11.690Z] Running admin server with args: ["python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""] and env: {"GCLOUD_PROJECT":"lucaplugs-dev","K_REVISION":"1","PORT":"80","GOOGLE_CLOUD_QUOTA_PROJECT":"lucaplugs-dev","FUNCTIONS_EMULATOR":"true","TZ":"UTC","FIREBASE_DEBUG_MODE":"true","FIREBASE_DEBUG_FEATURES":"{\"skipTokenVerification\":true,\"enableCors\":true}","FIREBASE_EMULATOR_HUB":"127.0.0.1:4400","FIRESTORE_EMULATOR_HOST":"127.0.0.1:8080","FIREBASE_FIRESTORE_EMULATOR_ADDRESS":"127.0.0.1:8080","PUBSUB_EMULATOR_HOST":"127.0.0.1:8085","FIREBASE_STORAGE_EMULATOR_HOST":"127.0.0.1:9199","STORAGE_EMULATOR_HOST":"http://127.0.0.1:9199","CLOUD_EVENTARC_EMULATOR_HOST":"http://127.0.0.1:9299","FIREBASE_CONFIG":"{\"storageBucket\":\"lucaplugs-dev.appspot.com\",\"databaseURL\":\"https://lucaplugs-dev-default-rtdb.firebaseio.com\",\"projectId\":\"lucaplugs-dev\"}","GOOGLE_APPLICATION_CREDENTIALS":"/home/devhyl2/.config/firebase/asalazar_hyl_cl_application_default_credentials.json","ADMIN_PORT":"8081"} in /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj
+[debug] [2023-12-07T20:54:11.690Z] Running command with virtualenv: command=., args=["\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/bin/activate\"","&&","python3.11","\"/home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/venv/lib/python3.11/site-packages/firebase_functions/private/serving.py\""]
+[info]  * Serving Flask app 'serving'
+ * Debug mode: off
+
+[error] WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:8081
+
+[error] Press CTRL+C to quit
+
+[debug] [2023-12-07T20:54:12.598Z] File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/__pycache__/main.cpython-311.pyc changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/devhyl2/Desktop/Repositories/HyL_LucaPlugin_003/cloud_functions/moderator-ddjj/__pycache__/main.cpython-311.pyc changed, reloading triggers"}}
+[error] 127.0.0.1 - - [07/Dec/2023 20:54:12] "GET /__/functions.yaml HTTP/1.1" 200 -
+
+[debug] [2023-12-07T20:54:12.629Z] Got response from /__/functions.yaml endpoints:
+  plugin_v1_ddjj_moderator:
+    availableMemoryMb: null
+    concurrency: null
+    entryPoint: plugin_v1_ddjj_moderator
+    eventTrigger:
+      eventFilters:
+        topic: ddjj
+      eventType: google.cloud.pubsub.topic.v1.messagePublished
+      retry: false
+    ingressSettings: null
+    labels: {}
+    maxInstances: 10
+    minInstances: null
+    platform: gcfv2
+    secretEnvironmentVariables: []
+    serviceAccountEmail: null
+    timeoutSeconds: null
+params: []
+requiredAPIs: []
+specVersion: v1alpha1
+
+[error] 127.0.0.1 - - [07/Dec/2023 20:54:12] "GET /__/quitquitquit HTTP/1.1" 200 -
+
+[error] Terminated
+
+[info] ✔  functions: Loaded functions definitions from source: plugin_v1_ddjj_moderator. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: plugin_v1_ddjj_moderator."}}
