@@ -30,21 +30,19 @@ class Cloud_elements:
             print(f"Error en obtain_folder_id {response.status_code}: {response.text}")
             return response.text
         
-class Firestore_resources:
+class Firebase_resources:
     def __init__(self) -> None:
         cred_path = os.path.abspath('config/lucaplugs-sa.json')
         cred = credentials.Certificate(cred_path)
         self.app = firebase_admin.initialize_app(cred)
         self.db = firestore.client()
 
-    def create_custom(self, plugin_name, user_id, ddjj, card_id, message):
-
+    def create_document(self, user_id, card_id, data, collection, document):
         try:
-            coll_ddjj = self.db.collection(plugin_name).document(user_id).collection(ddjj)
-            coll_custom = coll_ddjj.document(card_id).collection("current_custom")
-            doc_config = coll_custom.document("config")
-            doc_message = coll_custom.document("message")
-            doc_message.set(message)
+            coll_ddjj = self.db.collection("ddjj").document(user_id).collection("1948")
+            coll_custom = coll_ddjj.document(card_id).collection(collection)
+            doc_config = coll_custom.document(document)
+            doc_config.set(data)
 
         except Exception as e:
             print("Error en create_custom:", str(e))

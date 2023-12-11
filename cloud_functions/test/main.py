@@ -19,7 +19,7 @@ def test_moderator(req: https_fn.Request) -> https_fn.Response:
             "cardId": "B45VHfdAS0",
             "userId": "kjahdiekgSlhdkcaliSDJHJ",
             "inputFiles": "[]",
-            "inputText": '[{"ddjj":"1948", "rut":"760427349", "year":"2023"}]',
+            "inputText": '[{"ddjj":"1948", "rut":"76042734-9", "year":"2023"}]',
         }
 
         message_json = json.dumps(output)

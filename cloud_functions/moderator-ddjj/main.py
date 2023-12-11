@@ -9,15 +9,13 @@ def plugin_v1_ddjj_moderator(event: pubsub_fn.CloudEvent[pubsub_fn.MessagePublis
     from components.utils.resources import Cloud_elements
     from components.utils.resources import Firebase_resources
 
-    try:
-        
+    try:  
         import json
         import gc
         import os
         import traceback
         cloud_resources = Cloud_elements()
         firebase_resources = Firebase_resources()
-
 
         #* Obtención provisoria de info de JSON
         url_storage = "https://firebasestorage.googleapis.com/v0/b/lucaplugs-dev.appspot.com/o/ddjj%2Fcustoms%2F760427349%2Fseccion_rut_ddjj.json?alt=media&token=41f3a724-fd51-478d-8ded-4817abc7fcb9"
@@ -31,17 +29,13 @@ def plugin_v1_ddjj_moderator(event: pubsub_fn.CloudEvent[pubsub_fn.MessagePublis
         user_id = data["userId"]
         number_ddjj = data["inputCheckbox"][0]
 
-
         # Convertir el string corregido a una lista
         string_files = input_text.replace("'", '"')
         data_list = json.loads(string_files)
         data_list_content = data_list[0]
-        rut = data_list_content["rut"]
-        year = data_list_content["year"]
         plugin_ddjj = f'{plugin_name}{number_ddjj}'
 
         id_folder_drive = cloud_resources.obtain_folder_id(plugin_ddjj, user_id, card_id)
-        print("id_folder_drive:", id_folder_drive)
 
         message = {
             "plugin_name": plugin_name,
@@ -51,7 +45,9 @@ def plugin_v1_ddjj_moderator(event: pubsub_fn.CloudEvent[pubsub_fn.MessagePublis
             "card_id": card_id,
             "user_id": user_id,
             "custom": data_custom_send,
+            "drive_id": id_folder_drive,
             "input_text": data["inputText"],
+            "number_ddjj": number_ddjj
         }
 
         #asentar rutas en firestore
