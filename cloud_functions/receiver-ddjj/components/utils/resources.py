@@ -2,9 +2,6 @@ import os
 import requests
 import firebase_admin
 from firebase_admin import firestore, credentials
-import json
-from io import BytesIO
-import requests
 
 
 class Cloud_elements:
@@ -33,7 +30,7 @@ class Cloud_elements:
             print(f"Error en obtain_folder_id {response.status_code}: {response.text}")
             return response.text
         
-class Firebase_resources:
+class Firestore_resources:
     def __init__(self) -> None:
         cred_path = os.path.abspath('config/lucaplugs-sa.json')
         cred = credentials.Certificate(cred_path)
@@ -52,22 +49,3 @@ class Firebase_resources:
         except Exception as e:
             print("Error en create_custom:", str(e))
             return f"Error interno del servidor en create_custom: {str(e)}", 500
-        
-    def obtain_data_json(self, url):
-        try:
-            response = requests.get(url)
-            response.raise_for_status()  # Lanza una excepción para errores HTTP
-
-            json_data = response.json()
-
-            # Verificar si json_data es una lista de listas
-            if isinstance(json_data, list) and all(isinstance(row, list) for row in json_data):
-                return json_data
-            else:
-                print(f"El contenido de la URL no es un arreglo de arreglos: {url}")
-
-        except requests.RequestException as e:
-            print(f"Error al descargar la URL {url}: {e}")
-
-        # Si hay un error o la URL no tiene el formato esperado, retorna None
-        return None

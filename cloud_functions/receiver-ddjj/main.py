@@ -1,13 +1,29 @@
-# Welcome to Cloud Functions for Firebase for Python!
-# To get started, simply uncomment the below code or create your own.
-# Deploy with `firebase deploy`
 
-from firebase_functions import https_fn
-from firebase_admin import initialize_app
+from firebase_functions import https_fn, pubsub_fn
 
-# initialize_app()
-#
-#
-# @https_fn.on_request()
-# def on_request_example(req: https_fn.Request) -> https_fn.Response:
-#     return https_fn.Response("Hello world!")
+
+@pubsub_fn.on_message_published(max_instances=10, topic="ddjj1948")
+def plugin_v1_ddjj_receiver(event: pubsub_fn.CloudEvent[pubsub_fn.MessagePublishedData]) -> None:
+    """Pub/Sub Cloud Function.
+    """
+    from components.utils.resources import Cloud_elements
+    from components.utils.resources import Firestore_resources
+
+    try:
+        
+        import json
+        import gc
+        import os
+        import traceback
+        cloud_resources = Cloud_elements()
+        firestore_resources = Firestore_resources()
+    
+        data = event.data.message.json
+        print("data en receiver", data)
+
+        #limpia memoria hasta este punto
+        gc.collect()
+
+    except Exception as e:
+        print("Error en moderator:", str(e))
+        return f"Error interno del servidor en moderator: {str(e)}", 500
