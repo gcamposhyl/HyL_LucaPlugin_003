@@ -1,36 +1,22 @@
 from firebase_functions import https_fn
 
 @https_fn.on_request(max_instances=10)
-def test_moderator(req: https_fn.Request) -> https_fn.Response:
+def test_orderer_data(req: https_fn.Request) -> https_fn.Response:
+    import pandas as pd
     import json
     import os
-    from google.cloud import pubsub_v1
-
-    project_id =  os.environ.get('PROJECT_ID_FIREBASE')
-    topic_name = "ddjj"
-    publisher = pubsub_v1.PublisherClient()
+    from components.utils.data_service import Data_manipulation
 
     try:
-        output = {
-            "name": "ddjj",
-            #"inputCheckbox": ["1948"],
-            "inputCheckbox": "['1948']",
-            "pluginId": "7efgvs89HwR",
-            "messageId": "52156748954256",
-            "cardId": "B45VHfdAS0",
-            "userId": "kjahdiekgSlhdkcaliSDJHJ",
-            "inputFiles": "[]",
-            #"inputText": '[{"rut":"76042734-9", "año":"2023"}]',
-            "inputText": '["76042734-9","2023"]',
-        }
+        connection_drive = Data_manipulation()
+        if req.method == 'POST':
+            request_data = req.get_json()
+            full_data = json.dumps(request_data, indent=2)
 
-        message_json = json.dumps(output)
-        message_bytes = message_json.encode('utf-8')
-        topic_path = publisher.topic_path(project_id, topic_name)
-        future = publisher.publish(topic_path, message_bytes)
-        future.result() 
-        print("Mensaje publicado en el tema de Pub/Sub:", topic_name)
+            for dicc in request_data:
+                return None
 
     except Exception as ex:
         print(str(ex))
-    return https_fn.Response("test_ddjj started ...", status=200, mimetype="application/json")
+
+    return https_fn.Response("Función iniciada...", status=200, mimetype="application/json")
