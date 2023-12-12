@@ -2,7 +2,12 @@ import os
 import requests
 import firebase_admin
 from firebase_admin import firestore, credentials
-
+#cred_path = os.path.abspath('config/lucaplugs-sa.json')
+cred = credentials.ApplicationDefault()
+#cred = credentials.Certificate(cred_path)
+app = firebase_admin.initialize_app(cred)
+# cred = credentials.ApplicationDefault()
+db = firestore.client()
 
 class Cloud_elements:
     def __init__(self) -> None:
@@ -32,14 +37,15 @@ class Cloud_elements:
         
 class Firebase_resources:
     def __init__(self) -> None:
-        cred_path = os.path.abspath('config/lucaplugs-sa.json')
-        cred = credentials.Certificate(cred_path)
-        self.app = firebase_admin.initialize_app(cred)
-        self.db = firestore.client()
+        pass
+        # cred_path = os.path.abspath('config/lucaplugs-sa.json')
+        # cred = credentials.Certificate(cred_path)
+        # self.app = firebase_admin.initialize_app(cred)
+        # self.db = firestore.client()
 
     def create_document(self, user_id, card_id, data, collection, document):
         try:
-            coll_ddjj = self.db.collection("ddjj").document(user_id).collection("1948")
+            coll_ddjj = db.collection("ddjj").document(user_id).collection("1948")
             coll_custom = coll_ddjj.document(card_id).collection(collection)
             doc_config = coll_custom.document(document)
             doc_config.set(data)

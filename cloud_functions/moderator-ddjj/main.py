@@ -27,14 +27,14 @@ def plugin_v1_ddjj_moderator(event: pubsub_fn.CloudEvent[pubsub_fn.MessagePublis
         plugin_name = data["name"]
         card_id = data["cardId"]
         user_id = data["userId"]
-        number_ddjj = data["inputCheckbox"][0]
 
-        # Convertir el string corregido a una lista
-        string_files = input_text.replace("'", '"')
-        data_list = json.loads(string_files)
-        data_list_content = data_list[0]
+        # Cadena original
+        checkbox_str = data["inputCheckbox"]
+        string_files = checkbox_str.replace("'", '"')
+        input_checkbox_list = json.loads(checkbox_str)
+        number_ddjj = str(input_checkbox_list[0])
+
         plugin_ddjj = f'{plugin_name}{number_ddjj}'
-
         id_folder_drive = cloud_resources.obtain_folder_id(plugin_ddjj, user_id, card_id)
 
         message = {

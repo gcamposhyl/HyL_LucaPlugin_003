@@ -18,7 +18,8 @@ def plugin_v1_ddjj1948_output(event: Event[Change[DocumentSnapshot]]) -> None:
     cred = credentials.ApplicationDefault()
     db = firestore.client()
 
-    #value_modified = event.data.after.to_dict()
+    value_modified = event.data.after.to_dict()
+    print("value_modified", value_modified)
     user_id = event.params["userId"]
     card_id = event.params["cardId"]
 
@@ -44,6 +45,7 @@ def plugin_v1_ddjj1948_output(event: Event[Change[DocumentSnapshot]]) -> None:
         "card_id": card_id,
         "user_id": user_id,
         "input_text": message["input_text"],
+        "current_task": "1948",
         "config": doc_config.get().to_dict(),
         "output": url_folder_drive
       }

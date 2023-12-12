@@ -5,6 +5,14 @@ from firebase_admin import firestore, credentials
 import json
 from io import BytesIO
 import requests
+#cred_path = os.path.abspath('config/lucaplugs-sa.json')
+# cred = credentials.Certificate(cred_path)
+cred = credentials.ApplicationDefault()
+app = firebase_admin.initialize_app(cred)
+db = firestore.client()
+
+# cred = credentials.ApplicationDefault()
+# db = firestore.client()
 
 
 class Cloud_elements:
@@ -32,18 +40,15 @@ class Cloud_elements:
         else:
             print(f"Error en obtain_folder_id {response.status_code}: {response.text}")
             return response.text
-        
+
 class Firebase_resources:
     def __init__(self) -> None:
-        cred_path = os.path.abspath('config/lucaplugs-sa.json')
-        cred = credentials.Certificate(cred_path)
-        self.app = firebase_admin.initialize_app(cred)
-        self.db = firestore.client()
+        pass
 
     def create_custom(self, plugin_name, user_id, ddjj, card_id, message):
 
         try:
-            coll_ddjj = self.db.collection(plugin_name).document(user_id).collection(ddjj)
+            coll_ddjj = db.collection(plugin_name).document(user_id).collection(ddjj)
             coll_custom = coll_ddjj.document(card_id).collection("current_custom")
             doc_config = coll_custom.document("config")
             doc_message = coll_custom.document("message")
@@ -52,7 +57,7 @@ class Firebase_resources:
         except Exception as e:
             print("Error en create_custom:", str(e))
             return f"Error interno del servidor en create_custom: {str(e)}", 500
-        
+
     def obtain_data_json(self, url):
         try:
             response = requests.get(url)

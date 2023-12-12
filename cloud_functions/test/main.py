@@ -13,13 +13,15 @@ def test_moderator(req: https_fn.Request) -> https_fn.Response:
     try:
         output = {
             "name": "ddjj",
-            "inputCheckbox": ["1948"],
+            #"inputCheckbox": ["1948"],
+            "inputCheckbox": "['1948']",
             "pluginId": "7efgvs89HwR",
             "messageId": "52156748954256",
             "cardId": "B45VHfdAS0",
             "userId": "kjahdiekgSlhdkcaliSDJHJ",
             "inputFiles": "[]",
-            "inputText": '[{"ddjj":"1948", "rut":"76042734-9", "year":"2023"}]',
+            #"inputText": '[{"rut":"76042734-9", "año":"2023"}]',
+            "inputText": '["76042734-9","2023"]',
         }
 
         message_json = json.dumps(output)
