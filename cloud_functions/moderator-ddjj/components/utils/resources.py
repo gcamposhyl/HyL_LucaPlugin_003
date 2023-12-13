@@ -20,7 +20,10 @@ class Cloud_elements:
         pass
 
     def obtain_folder_id(self, plugin_name, user_id, card_id):
-        url = os.environ.get('CF_CREATE_FOLDER')
+        project_id = os.getenv("PROJECT_ID_FIREBASE")
+        region = os.getenv("PLUGIN_PROJECT_REGION")
+        request_folder_drive = f'https://{region}-{project_id}.cloudfunctions.net/core_plugin_v1_output_directories'
+
         folder_id = os.environ.get('FOLDER_DRIVE_ID')
         headers = {"Content-Type": "application/json"}
 
@@ -32,7 +35,7 @@ class Cloud_elements:
         }
 
         # Realizar la solicitud POST
-        response = requests.post(url, json=params, headers=headers)
+        response = requests.post(request_folder_drive, json=params, headers=headers)
         # Verificar si la solicitud fue exitosa (código de estado 200)
         if response.status_code == 200:
             result_url = response.json().get("name_id_card_folder")

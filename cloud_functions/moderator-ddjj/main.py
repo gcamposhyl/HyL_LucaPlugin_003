@@ -16,7 +16,7 @@ def plugin_v1_ddjj_moderator(event: pubsub_fn.CloudEvent[pubsub_fn.MessagePublis
         import traceback
         cloud_resources = Cloud_elements()
         firebase_resources = Firebase_resources()
-
+    
         #* Obtención provisoria de info de JSON
         url_storage = "https://firebasestorage.googleapis.com/v0/b/lucaplugs-dev.appspot.com/o/ddjj%2Fcustoms%2F760427349%2Fseccion_rut_ddjj.json?alt=media&token=41f3a724-fd51-478d-8ded-4817abc7fcb9"
         data_custom = firebase_resources.obtain_data_json(url_storage)
