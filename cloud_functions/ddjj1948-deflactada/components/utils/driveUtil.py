@@ -3,6 +3,7 @@ from google.oauth2 import service_account
 class Drive:
 
     def __init__(self):
+        import google.auth
         from googleapiclient.discovery import build        
         try:
             creds = 'components/config/lucaplugs-sa.json'
@@ -67,6 +68,8 @@ class Drive:
             for item in items:
                 subfolder_name = item['name']
                 subfolder_id = item['id']
+                print(f"nombre: {subfolder_name}")
+                print(f"id: {subfolder_id}")
                 subfolders.append([subfolder_name, subfolder_id])
 
             return subfolders  

@@ -2,6 +2,7 @@ from google.oauth2 import service_account
 
 class Gsheet:
     def __init__(self) -> None:
+        #import google.auth
         from googleapiclient.discovery import build        
         try:
             cred = 'components/config/lucaplugs-sa.json'
@@ -9,6 +10,8 @@ class Gsheet:
 
             # Configuración de autenticación con la cuenta de servicio
             creds = service_account.Credentials.from_service_account_file(cred, scopes = scopes)
+                        
+            #creds, _ = google.auth.default()
                         
             drive = build('sheets', 'v4', credentials=creds)
             

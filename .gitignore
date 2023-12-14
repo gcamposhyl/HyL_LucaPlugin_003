@@ -1,4 +1,5 @@
 venv
+.firebaserc
 
 firestore-debug.log
 pubsub-debug.log

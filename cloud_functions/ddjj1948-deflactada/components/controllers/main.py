@@ -15,9 +15,11 @@ load_dotenv()
 
 class Ddjj_1948:
 
-    def __init__(self, user_id, card_id) -> None:
+    def __init__(self, user_id, card_id, ipc_dic) -> None:
         self._user_id = user_id
         self._card_id = card_id
+        self._ipc_dic = ipc_dic
+
 
     def get_user_id(self):
         try:
@@ -31,17 +33,21 @@ class Ddjj_1948:
         except Exception as ex:
             print(str(ex)) 
 
+    def get_ipc_dic(self):
+        try:
+            return self._ipc_dic
+        except Exception as ex:
+            print(str(ex)) 
+
     def get_ddjj1948(self, current_folder, rut, year, client_name, scraping_data):
         from datetime import datetime
         gsheet = Gsheet()
         template_folder_id = os.getenv("TEMPLATE_FOLDER_ID")
         
         try:    
-            name_template = f"1948_estandar_{year}"         
+            name_template = f"1948_deflactada_{year}"         
             # transformo en df
             df_scraping_data = pd.DataFrame(scraping_data)
-
-            print(df_scraping_data.head())
 
             # valido datos relevantes
 
@@ -52,16 +58,18 @@ class Ddjj_1948:
             temp_files = self.get_template_id(template_folder_id, name_template) # nombre e id de template según año
 
             # creo copia de planilla template
-            new_ddjj_file = self.copy_template(current_folder, temp_files[1], "prueba archivo estandar") # diccionario con id de carpeta
+            new_ddjj_file = self.copy_template(current_folder, temp_files[1], "prueba archivo deflactada") # diccionario con id de carpeta
 
             id_new_file = new_ddjj_file['id_gsheet']
-            sheet_name = '1948 Retiros y Div.'
+            sheet_name = '1948 Deflactada'
             start_cell = 'B14'
+
             # inserto datos ddjj en copia
             gsheet.insert_data_to_sheet(id_new_file, sheet_name, update_df, start_cell)
+
             # inserto datos de cabecara
             header_cell = 'B1'
-            client_rut = rut
+            client_rut = rut # de planilla clientes
             year_trib = year # año input
             date_extract = datetime.now().strftime("%d/%m/%Y")
 
@@ -82,11 +90,12 @@ class Ddjj_1948:
             print(str(ex)) 
 
     def confirm_sucess(self):
-        
+        from firebase_admin import firestore
+        db = firestore.client()
         try:
             #* Obtención de datos desde firestore
-            doc_estandar = db.collection("ddjj").document(str(self.get_user_id())).collection("1948").document(str(self.get_card_id())).collection("tasks").document("estandar")
-            doc_estandar.set({"status": True}, merge=True)
+            doc_deflactada = db.collection("ddjj").document(str(self.get_user_id())).collection("1948").document(str(self.get_card_id())).collection("tasks").document("deflactada")
+            doc_deflactada.set({"status": True}, merge=True)
         except Exception as ex:
             print(str(ex))
 
@@ -160,12 +169,14 @@ class Ddjj_1948:
         try:
             # formatear headers 
             df_01 = transform.to_format(df)
-         
+
             # transformar a numero
             df_03 = transform.transform_to_num(df_01) # aqui se podria hacer esto en la planilla template
 
             # transformar listas
-            df_finally = transform.transform_list(df_03)
+            df_04 = transform.transform_list(df_03)
+
+            df_finally = transform.set_ipc(df_04, self.get_ipc_dic)
 
             return df_finally 
             
