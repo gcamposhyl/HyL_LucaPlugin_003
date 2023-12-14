@@ -1,5 +1,6 @@
 import os
 import requests
+import datetime
 import firebase_admin
 from firebase_admin import firestore, credentials
 #cred_path = os.path.abspath('config/lucaplugs-sa.json')
@@ -26,7 +27,77 @@ class Cloud_elements:
         except Exception as error :
            print("Error in read_sientos_in_drive()", error)
 
+    def validate_year(self, year):
+        if not year.isdigit():
+            raise ValueError("El año debe contener solo números.")
+        
+        # Obtener el año actual
+        ano_actual = datetime.datetime.now().year
 
+        # Convertir la entrada a entero y asegurarse de que tenga 4 dígitos
+        year = int(year)
+        if len(str(year)) != 4:
+            raise ValueError("El año debe tener 4 dígitos.")
+        
+        # Verificar que el año no sea superior al actual
+        if year > ano_actual:
+            raise ValueError("No se puede consultar un año superior al actual.")
+        
+        # Verificar que el año esté dentro de un rango de 10 años
+        if ano_actual - year > 10:
+            raise ValueError("El año debe estar dentro de un rango de 10 años respecto al actual.")
+
+        # Si todas las condiciones son correctas, retornar el año
+        return year
+
+
+    def rut_without_points(self, rut):
+        rut_str = str(rut).replace(" ", "")
+        rut_str = rut_str.replace(".", "").replace("-", "")
+
+        if len(rut_str) < 8 or len(rut_str) > 9:
+            raise ValueError("El RUT debe tener entre 8 y 9 números.")
+
+        if not rut_str[:-1].isdigit() or (rut_str[-1].lower() != 'k' and not rut_str[-1].isdigit()):
+            raise ValueError("Formato de RUT incorrecto, sólo puede contener como letra la 'K'.")
+
+        rut_str = rut_str.lstrip("0")
+
+        if len(rut_str) < 8:
+            raise ValueError("El RUT debe tener al menos 8 números significativos.")
+
+        rut_formateado = rut_str[:-1] + "-" + rut_str[-1].lower()
+        # rut_str = str(rut).replace(" ", "")
+        # rut_str = rut_str.replace(".", "").replace("-", "")
+
+        # if not rut_str.isdigit():
+        #     raise ValueError("Formato de RUT incorrecto, no debe contener letras.")
+        
+        # if len(rut_str) < 8 or len(rut_str) > 9:
+        #     raise ValueError("Formato de RUT incorrecto, debe tener entre 8 y 9 números.")
+
+        # rut_str = rut_str.lstrip("0")
+
+        # if len(rut_str) < 8:
+        #     raise ValueError("El RUT debe tener al menos 8 números significativos.")
+
+        # rut_formateado = rut_str[:-1] + "-" + rut_str[-1]
+        return rut_formateado
+
+    def formatted_rut(self, input_string):
+        guion_y_digito_final = input_string[-2:].upper()
+        parte_numerica = input_string[:-2]
+
+        if len(parte_numerica) == 8:
+            parte_numerica_con_puntos = f"{parte_numerica[:2]}.{parte_numerica[2:5]}.{parte_numerica[5:]}"
+        elif len(parte_numerica) == 7:
+            parte_numerica_con_puntos = f"{parte_numerica[0]}.{parte_numerica[1:4]}.{parte_numerica[4:]}"
+        else:
+            raise ValueError("La longitud de la parte numérica no es válida.")
+
+        resultado_final = f"{parte_numerica_con_puntos}{guion_y_digito_final}"
+        return resultado_final
+    
     def obtain_folder_id(self, plugin_name, user_id, card_id):
         url = os.environ.get('CF_CREATE_FOLDER')
         folder_id = os.environ.get('FOLDER_DRIVE_ID')
