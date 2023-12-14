@@ -15,7 +15,7 @@ def test_moderator(req: https_fn.Request) -> https_fn.Response:
             'pluginId': 'hLBRSK18Xxge',
             'recipient': 'hLBRSK18Xxge',
             'inputCheckbox': '["1948"]',
-            'inputText': '["10586969-k","2j1g"]',
+            'inputText': '["10586969-k","2j1gs"]',
             'region': 'us-central1',
             'status': 'procesando',
             'name': 'ddjj',
