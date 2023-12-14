@@ -13,6 +13,20 @@ class Cloud_elements:
     def __init__(self) -> None:
         pass
 
+    def obtain_matrice(self, dictionary):
+        try:
+            matrice = []
+            order = ['COL01', 'COL02', 'COL03', 'COL04', 'COL05', 'COL06', 'COL07', 'COL08', 'COL09', 'COL10', 'COL11', 'COL12', 'COL13', 'COL14', 'COL15', 'COL16', 'COL17', 'COL18', 'COL19', 'COL20', 'COL21', 'COL22', 'COL23', 'COL24', 'COL25', 'COL26', 'COL27', 'COL28', 'COL29', 'COL30', 'COL31', 'COL32', 'COL33', 'COL34', 'COL35', 'COL36', 'COL37', 'COL38', 'COL39', 'COL40']
+            matrice.append(order)
+            for data in dictionary:
+                ordered_row = [str(data[clave]) for clave in order]
+                matrice.append(ordered_row)
+
+            return matrice
+        except Exception as error :
+           print("Error in read_sientos_in_drive()", error)
+
+
     def obtain_folder_id(self, plugin_name, user_id, card_id):
         url = os.environ.get('CF_CREATE_FOLDER')
         folder_id = os.environ.get('FOLDER_DRIVE_ID')
