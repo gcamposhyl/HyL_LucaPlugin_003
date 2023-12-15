@@ -5,3 +5,5 @@ firestore-debug.log
 pubsub-debug.log
 
 __pycache__
+lucaplugs-sa.json
+.env

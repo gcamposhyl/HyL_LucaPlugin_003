@@ -1,0 +1,30 @@
+{
+
+    "name": "DDJJ",
+    "areaId": "Contabilidad",
+    "region": "us-central1",
+    "projectName": "lucaplugs-dev",
+    "urlFunction": "https://us-central1-lucaplugs-dev.cloudfunctions.net/core-v1-domain_interface/install",
+    "secret": "muySecreto",
+    "mode": "online",
+    "inputFiles": [
+            {
+                "labels": [
+                "rut",
+                "año"
+                ],
+                "type": "text",
+                "mimeType": [
+                    "none"
+                ]
+            },
+            {
+            "labels": [
+                ["1948", "Activar DJ-1948"]
+                ],
+            "type": "checkbox",
+            "mimeType": [
+            "none"
+            ]
+        }]
+    }
