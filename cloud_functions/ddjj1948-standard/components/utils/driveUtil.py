@@ -11,20 +11,20 @@ class Drive:
             # Configuración de autenticación con la cuenta de servicio
             creds = service_account.Credentials.from_service_account_file(creds, scopes = scopes)
 
-            #creds, _ = google.auth.default()
             drive = build('drive', 'v3', credentials=creds)
             
-        except Exception as e:
-            raise Exception(str(e))   
+        except Exception as ex:
+            raise Exception(str(ex))   
              
         self._drive = drive  
 
     def get_drive(self):
         try:
+
             return self._drive
 
         except Exception as ex:
-            print(str(ex))
+            raise Exception(str(ex))
 
     def create_folder(self, name, id):
         """
@@ -48,7 +48,7 @@ class Drive:
 
             return folder_id
         except Exception as ex:
-            print(str(ex))
+            raise Exception(str(ex))
         
     def get_subfolders(self, id_folder: str):
         """
@@ -71,8 +71,8 @@ class Drive:
 
             return subfolders  
         
-        except Exception as e:
-            raise Exception(str(e))
+        except Exception as ex:
+            raise Exception(str(ex))
         
     def get_files_in_folder(self, id_folder: str):
         """
@@ -95,5 +95,5 @@ class Drive:
 
             return files_list
 
-        except Exception as e:
-            raise Exception(str(e))
+        except Exception as ex:
+            raise Exception(str(ex))

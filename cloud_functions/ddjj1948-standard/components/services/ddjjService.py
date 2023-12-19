@@ -1,6 +1,4 @@
 class Transform:
-    def __init__(self) -> None:
-        pass
 
     def to_format(self, df):
         try:
@@ -12,15 +10,25 @@ class Transform:
             return df
 
         except Exception as ex:
-            print(str(ex))
+            raise Exception(str(ex))
 
 
     # columna de números en formato númerico
     def transform_to_num(self, df):
+        import numpy as np
+        import pandas as pd
         try:
+
+            ipc_col = np.arange(10, 37).astype(str)
+            ipc_col = ['COL' + col.zfill(2) for col in ipc_col] # arreglo que contiene valorers de desde COL05 a COL32
+
+            df[ipc_col] = df[ipc_col].replace('\.', '', regex=True)           
+
+            df[ipc_col] = df[ipc_col].apply(pd.to_numeric)
+
             return df
         except Exception as ex:
-            print(str(ex))
+            raise Exception(str(ex))
 
     # lista consignificado de siglas
     def transform_list(self, df):
@@ -33,9 +41,8 @@ class Transform:
 
             df['COL08'] = df['COL08'].replace(mapping)
 
-            # print(df['COL12'].head())
-
             return df
+        
         except Exception as ex:
-            print(str(ex))
+            raise Exception(str(ex))
          

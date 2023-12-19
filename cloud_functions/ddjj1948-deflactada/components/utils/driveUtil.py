@@ -3,7 +3,6 @@ from google.oauth2 import service_account
 class Drive:
 
     def __init__(self):
-        import google.auth
         from googleapiclient.discovery import build        
         try:
             creds = 'components/config/lucaplugs-sa.json'
@@ -12,11 +11,10 @@ class Drive:
             # Configuración de autenticación con la cuenta de servicio
             creds = service_account.Credentials.from_service_account_file(creds, scopes = scopes)
 
-            #creds, _ = google.auth.default()
             drive = build('drive', 'v3', credentials=creds)
             
-        except Exception as e:
-            raise Exception(str(e))   
+        except Exception as ex:
+            raise Exception(str(ex))   
              
         self._drive = drive  
 
@@ -25,7 +23,7 @@ class Drive:
             return self._drive
 
         except Exception as ex:
-            print(str(ex))
+            raise Exception(str(ex))
 
     def create_folder(self, name, id):
         """
@@ -49,7 +47,7 @@ class Drive:
 
             return folder_id
         except Exception as ex:
-            print(str(ex))
+            raise Exception(str(ex))
         
     def get_subfolders(self, id_folder: str):
         """
@@ -68,14 +66,12 @@ class Drive:
             for item in items:
                 subfolder_name = item['name']
                 subfolder_id = item['id']
-                print(f"nombre: {subfolder_name}")
-                print(f"id: {subfolder_id}")
                 subfolders.append([subfolder_name, subfolder_id])
 
             return subfolders  
         
-        except Exception as e:
-            raise Exception(str(e))
+        except Exception as ex:
+            raise Exception(str(ex))
         
     def get_files_in_folder(self, id_folder: str):
         """
@@ -98,5 +94,5 @@ class Drive:
 
             return files_list
 
-        except Exception as e:
-            raise Exception(str(e))
+        except Exception as ex:
+            raise Exception(str(ex))

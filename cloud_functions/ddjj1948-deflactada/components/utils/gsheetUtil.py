@@ -2,7 +2,6 @@ from google.oauth2 import service_account
 
 class Gsheet:
     def __init__(self) -> None:
-        #import google.auth
         from googleapiclient.discovery import build        
         try:
             cred = 'components/config/lucaplugs-sa.json'
@@ -10,13 +9,11 @@ class Gsheet:
 
             # Configuración de autenticación con la cuenta de servicio
             creds = service_account.Credentials.from_service_account_file(cred, scopes = scopes)
-                        
-            #creds, _ = google.auth.default()
-                        
+                                                
             drive = build('sheets', 'v4', credentials=creds)
             
-        except Exception as e:
-            raise Exception(str(e))   
+        except Exception as ex:
+            raise Exception(str(ex))   
              
         self._gsheet = drive  
 
@@ -26,6 +23,7 @@ class Gsheet:
 
         except Exception as ex:
             print(str(ex))
+            raise Exception(str(ex))
 
     def getSheetByNameSheet(self, sc_id, sc_name):
 
@@ -46,6 +44,7 @@ class Gsheet:
             return values
         except Exception as ex:
             print(str(ex))
+            raise Exception(str(ex))
 
     def insert_data_to_sheet(self, spreadsheet_id, sheet_name, df, start_cell):
         try:
@@ -73,3 +72,4 @@ class Gsheet:
 
         except Exception as ex:
             print(f"Error al insertar datos en la hoja de cálculo: {str(ex)}")
+            raise Exception(str(ex))

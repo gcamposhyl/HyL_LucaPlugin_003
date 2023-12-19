@@ -1,157 +1,87 @@
+# componentes de negocio
 from components.utils.gsheetUtil import Gsheet
 from components.utils.driveUtil import Drive
 
+# librerias firebase
+import firebase_admin
+firebase_admin.initialize_app()
+
+# librerias de utilidad
 import pandas as pd
 from dotenv import load_dotenv
-import firebase_admin
-from firebase_admin import firestore
-
-firebase_admin.initialize_app()
-db = firestore.client()
-
 import os
 load_dotenv()
 
 
 class Ddjj_1948:
 
-    def __init__(self, user_id, card_id) -> None:
+    def __init__(self, user_id, card_id, year) -> None:
         self._user_id = user_id
         self._card_id = card_id
+        self._year = year
+
+
+    def get_year(self):
+        try:
+            return self._year
+        except Exception as ex:
+            raise Exception(str(ex))
 
     def get_user_id(self):
         try:
             return self._user_id
         except Exception as ex:
-            print(str(ex)) 
+            raise Exception(str(ex))
 
     def get_card_id(self):
         try:
             return self._card_id
         except Exception as ex:
-            print(str(ex)) 
+            raise Exception(str(ex))
 
-    def get_ddjj1948(self, current_folder, rut, year, client_name, scraping_data):
+    def get_ddjj1948(self, current_sheet, rut, client_name, scraping_data):
         from datetime import datetime
         gsheet = Gsheet()
-        template_folder_id = os.getenv("TEMPLATE_FOLDER_ID")
         
         try:    
-            name_template = f"1948_estandar_{year}"         
-            # transformo en df
-            df_scraping_data = pd.DataFrame(scraping_data)
+            #PASO 1: MANIPULACION Y TRANSFORMACION DE INPUTS            
+            df_scraping_data = pd.DataFrame(scraping_data) # transformo en df            
+            update_df = self.transform_data(df_scraping_data) # transformo datos según negocio
 
-            print(df_scraping_data.head())
+            # PASO 2: INSERTAR DATOS DDJJ
 
-            # valido datos relevantes
-
-            # transformo datos según negocio
-            update_df = self.transform_data(df_scraping_data)
-
-            # id de template de referencia
-            temp_files = self.get_template_id(template_folder_id, name_template) # nombre e id de template según año
-
-            # creo copia de planilla template
-            new_ddjj_file = self.copy_template(current_folder, temp_files[1], "prueba archivo estandar") # diccionario con id de carpeta
-
-            id_new_file = new_ddjj_file['id_gsheet']
             sheet_name = '1948 Retiros y Div.'
-            start_cell = 'B14'
-            # inserto datos ddjj en copia
-            gsheet.insert_data_to_sheet(id_new_file, sheet_name, update_df, start_cell)
-            # inserto datos de cabecara
+            start_cell = 'B14'            
+            gsheet.insert_data_to_sheet(current_sheet, sheet_name, update_df, start_cell) # inserto datos ddjj en copia
+            
+            # PASO 3: INSERTAR DATOS DE CABECERA
+            
             header_cell = 'B1'
-            client_rut = rut
-            year_trib = year # año input
             date_extract = datetime.now().strftime("%d/%m/%Y")
-
             header_matrix = [[f"Nombre Cliente: {client_name}"],
-                             [f"RUT Cliente: {client_rut}"],
-                             [f"Año Tributario: {year_trib}"],
-                             [f"Fecha Extracción: {date_extract}"]]
+                             [f"RUT Cliente: {rut}"],
+                             [f"Año Tributario: {self.get_year()}"],
+                             [f"Fecha Extracción: {date_extract}"]]            
+            header_df = pd.DataFrame(header_matrix)            
+            gsheet.insert_data_to_sheet(current_sheet, sheet_name, header_df, header_cell)
             
-            header_df = pd.DataFrame(header_matrix)
-            
-            gsheet.insert_data_to_sheet(id_new_file, sheet_name, header_df, header_cell)
+            # PASO 4: INFORMAR PROCESO COMPLETADO
 
-            # no retorno nada, solo cambio estado de documento
-            self.confirm_sucess()
+            self.confirm_sucess() # no retorno nada, solo cambio estado de documento
 
 
         except Exception as ex:
-            print(str(ex)) 
+            raise Exception(str(ex))
 
     def confirm_sucess(self):
-        
+        from firebase_admin import firestore
+        db = firestore.client()
         try:
             #* Obtención de datos desde firestore
             doc_estandar = db.collection("ddjj").document(str(self.get_user_id())).collection("1948").document(str(self.get_card_id())).collection("tasks").document("estandar")
             doc_estandar.set({"status": True}, merge=True)
         except Exception as ex:
-            print(str(ex))
-
-    def get_template_id(self, folder_id, template_name):
-        
-        try:
-            name_id_files = Drive().get_files_in_folder(folder_id)
-
-            matches = list(filter(lambda x: template_name in x[0], name_id_files))
-            return matches[0] if matches else None
-             
-        except Exception as ex:
-            print(str(ex)) 
-
-    def get_folder_id(self, folder_id, plugin_name, user_id, card_id):
-        import requests
-        project_id = os.getenv("PLUGIN_PROJECT_ID")
-        region = os.getenv("PLUGIN_PROJECT_REGION")
-        try:
-            url = f"https://{region}-{project_id}.cloudfunctions.net/core_plugin_v1_output_directories"
-            # Parámetros que deseas enviar en el cuerpo de la solicitud
-            payload = {
-                'folder_id': folder_id,
-                'plugin_name': plugin_name,
-                'user_id': user_id,
-                'card_id': card_id
-            }
-
-            # Realizar la solicitud POST
-            response = requests.post(url, json=payload)
-
-            # Verificar el código de respuesta
-            if response.status_code == 200:
-                return response.json()
-            else:
-                print(f"Error en la solicitud. Código de estado: {response.status_code}")
-        except Exception as ex:
-            print(str(ex))
-
-    def copy_template(self, folder_id, gsheet_id, name_gsheet):
-        import requests
-        project_id = os.getenv("PLUGIN_PROJECT_ID")
-        region = os.getenv("PLUGIN_PROJECT_REGION")
-        try:
-            url = f"https://{region}-{project_id}.cloudfunctions.net/core_plugin_v1_duplicate_gsheet"
-
-            # Parámetros que deseas enviar en el cuerpo de la solicitud
-            payload = {
-                'folder_id': folder_id,
-                'gsheet_id': gsheet_id,
-                'name_gsheet': name_gsheet,
-            }
-
-            # Realizar la solicitud POST
-            response = requests.post(url, json=payload)
-
-            # Verificar el código de respuesta
-            if response.status_code == 200:
-                return response.json()
-            else:
-                print(f"Error en la solicitud. Código de estado: {response.status_code}")
-                print(response.text)
-
-        except Exception as ex:
-            print(str(ex))
+            raise Exception(str(ex))
 
     def transform_data(self, df):
 
@@ -170,4 +100,4 @@ class Ddjj_1948:
             return df_finally 
             
         except Exception as ex:
-            print(str(ex)) 
+            raise Exception(str(ex))
